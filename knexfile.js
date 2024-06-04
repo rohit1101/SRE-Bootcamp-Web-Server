@@ -4,7 +4,6 @@
  * @type { Object.<string, import("knex").Knex.Config> }
  */
 require("dotenv").config({ path: ".env" });
-console.log(process.env);
 module.exports = {
   development: {
     client: "pg",
