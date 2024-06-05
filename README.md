@@ -38,19 +38,23 @@ This repo contains the step by step implementation of **SRE Bootcamp** and updat
 [Setup an observability stack]: #setup-an-observability-stack
 [Configure dashboards & alerts]: #configure-dashboards--alerts
 
-
 ### Pre-requisites:
 
 - Once you have an Ubuntu system follow the below steps assuming you already have git CLI installed
+
 ```sh
 sudo -i // switch to root user
 apt update -y
 ```
+
 - Clone the repo:
+
 ```sh
 git clone https://github.com/rohit1101/SRE-Bootcamp-Web-Server.git
 ```
+
 - Install the dependencies required for the project:
+
 ```sh
 # installs nvm (Node Version Manager)
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
@@ -64,38 +68,45 @@ node -v # should print `v20.14.0`
 # verifies the right NPM version is in the environment
 npm -v # should print `10.7.0`
 ```
+
 - Install postgresql:
+
 ```sh
 apt install postgresql // this install psql client for interacting with the database with quries
 ```
+
 - Switch to postgres user and use psql client
-<img width="881" alt="image" src="https://github.com/rohit1101/SRE-Bootcamp-Web-Server/assets/37110560/d5e988b8-ad55-497c-8129-844b5f8eff33">
+  <img width="881" alt="image" src="https://github.com/rohit1101/SRE-Bootcamp-Web-Server/assets/37110560/d5e988b8-ad55-497c-8129-844b5f8eff33">
 
 - Run the following command to set `postgres` user with a valid password and exit psql client using `\q` and type `exit` to logout from `postgres` user shell:
+
 ```psql
 ALTER USER postgres PASSWORD 'postgres';
 ```
 
 ### Endpoints:
 
-
-
 ### 🏅Create a simple REST API Webserver
 
 After successful pre-requisites setup following the below steps:
 
 - Now let us clone this repo(fork and clone) and move into the src of the web server code:
+
 ```sh
 git clone https://github.com/rohit1101/SRE-Bootcamp-Web-Server.git
 cd SRE-Bootcamp-Web-Server
 ```
+
 - Execute `make install` to install all the dependancies for the express js web server
-- Run `npx knex init` command creates a `knexfile.js` configuration file.
+- Run `make db_config` command creates a `knexfile.js` configuration file.
 - Create a new directory named **migrations**
+
 ```sh
 mkdir migrations
 ```
-- Make sure you pass the correct values for the environment variables in a new file named `.env` by referring the `.env.example`. My `.env` file looks as shown below.*Since I am testing the API locally I am using the default postgres DB for creating tables(on a production environment this is not recommended).
+
+- Make sure you pass the correct values for the environment variables in a new file named `.env` by referring the `.env.example`. My `.env` file looks as shown below.\*Since I am testing the API locally I am using the default postgres DB for creating tables(on a production environment this is not recommended).
+
 ```env
 NODE_ENV=development
 DB_USER=postgres
@@ -106,6 +117,7 @@ DB_DATABASE=postgres
 ```
 
 - Modify the `knexfile.js` configuration file based on your requirements
+
 ```js
 require("dotenv").config({ path: ".env" });
 module.exports = {
@@ -115,7 +127,7 @@ module.exports = {
       user: process.env.DB_USER,
       host: process.env.DB_HOST,
       database: process.env.DB_DATABASE,
-      password: process.env.DB_PASSWORD
+      password: process.env.DB_PASSWORD,
     },
     pool: {
       min: 2,
@@ -127,20 +139,24 @@ module.exports = {
   },
 };
 ```
+
 - Create a new migration, the following command will create a new migrations file in this path -> `migrations/` and update the migrations file by refering the migrations file in this repo.
+
 ```sh
-npx knex migrate:make create_students_table
+make create_migrations
 ```
+
 - This command applies the migration and creates the students table in your PostgreSQL database.
+
 ```sh
-npx knex migrate:latest
+make migrate
 ```
+
   <img width="891" alt="image" src="https://github.com/rohit1101/SRE-Bootcamp-Web-Server/assets/37110560/304fa9f3-8a78-4b7c-b7cc-2722a3adefd0">
   
   
 - Now switch to `postgres` user and enter `psql` to check our `students` table:
   <img width="848" alt="SCR-20240605-oevk" src="https://github.com/rohit1101/SRE-Bootcamp-Web-Server/assets/37110560/c3b822a0-dd43-413e-bc8e-02fe8bf72c6f">
-
 
 ### 🏅Containerise REST API
 
@@ -182,9 +198,7 @@ npx knex migrate:latest
 
 🚧 Work in progress
 
-
 ### The **Whys** of few steps or commands ?
+
 - [Why `apt update -y` on Debian-based distros ?](https://askubuntu.com/a/222352)
-- 
-
-
+-
