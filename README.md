@@ -1,7 +1,16 @@
-[SRE Bootcamp](https://playbook.one2n.in/sre-bootcamp)
+# [SRE Bootcamp](https://playbook.one2n.in/sre-bootcamp)
 
+This repo contains the step by step implementation of **SRE Bootcamp** and updated **README** for the steps I followed to completed each milestone🏅.
 
+## Technologies used:
 
+- OS: Ubuntu 22.04 LTS
+- Web server: Node.js, Expressjs
+- Unit Tests: Jest,Supertest and Postman
+- Database: PostgreSQL
+- Database Migration: Knex
+
+## Milestones
 
 1. [Create a simple REST API Webserver]
 2. [Containerise REST API]
@@ -15,8 +24,6 @@
 10. [Setup an observability stack]
 11. [Configure dashboards & alerts]
 
-
-
 [Create a simple REST API Webserver]: #create-a-simple-rest-api-webserver
 [Containerise REST API]: #Containerise-REST-API
 [Setup one-click local development setup]: #setup-one-click-local-development-setup
@@ -29,7 +36,6 @@
 [Setup an observability stack]: #setup-an-observability-stack
 [Configure dashboards & alerts]: #configure-dashboards--alerts
 
-
 ### 🏅Create a simple REST API Webserver
 
 🚧 Work in progress
@@ -37,7 +43,6 @@
 ### 🏅Containerise REST API
 
 🚧 Work in progress
-
 
 ### 🏅Setup one-click local development setup
 
@@ -74,4 +79,3 @@
 ### 🏅Configure dashboards & alerts
 
 🚧 Work in progress
-
