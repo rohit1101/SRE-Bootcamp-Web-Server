@@ -15,7 +15,7 @@
 
 
 
-[Create a simple REST API Webserver]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server#create-a-simple-rest-api-webserver
+[Create a simple REST API Webserver]: #create-a-simple-rest-api-webserver
 [Containerise REST API]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server#Containerise-REST-API
 [Setup one-click local development setup]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server#setup-one-click-local-development-setup
 [Setup a CI pipeline]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server#setup-a-CI-pipeline
