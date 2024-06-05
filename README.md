@@ -13,7 +13,9 @@
 10. Setup an observability stack
 11. Configure dashboards & alerts
 
-[Create a simple REST API Webserver]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server/edit/main/README.md#create-a-simple-rest-api-webserver
+
+
+[Create a simple REST API Webserver]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server#create-a-simple-rest-api-webserver
 [Containerise REST API]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server/edit/main/README.md#Containerise-REST-API
 [Setup one-click local development setup]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server/edit/main/README.md#setup-one-click-local-development-setup
 [Setup a CI pipeline]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server/edit/main/README.md#setup-a-CI-pipeline
