@@ -16,17 +16,16 @@
 
 
 [Create a simple REST API Webserver]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server#create-a-simple-rest-api-webserver
-[Containerise REST API]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server/edit/main/README.md#Containerise-REST-API
-[Setup one-click local development setup]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server/edit/main/README.md#setup-one-click-local-development-setup
-[Setup a CI pipeline]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server/edit/main/README.md#setup-a-CI-pipeline
-[Deploy REST API & its dependent services on bare metal]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server/edit/main/README.md#deploy-rest-api--its-dependent-services-on-bare-metal
-
-[Setup Kubernetes cluster]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server/edit/main/README.md#create-a-simple-rest-api-webserver
-[Deploy REST API & its dependent services in K8s]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server/edit/main/README.md#create-a-simple-rest-api-webserver
-[Deploy REST API & its dependent services using Helm Charts]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server/edit/main/README.md#create-a-simple-rest-api-webserver
-[Setup one-click deployments using ArgoCD]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server/edit/main/README.md#create-a-simple-rest-api-webserver
-[Setup an observability stack]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server/edit/main/README.md#create-a-simple-rest-api-webserver
-[Configure dashboards & alerts]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server/edit/main/README.md#create-a-simple-rest-api-webserver
+[Containerise REST API]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server#Containerise-REST-API
+[Setup one-click local development setup]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server#setup-one-click-local-development-setup
+[Setup a CI pipeline]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server#setup-a-CI-pipeline
+[Deploy REST API & its dependent services on bare metal]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server#deploy-rest-api--its-dependent-services-on-bare-metal
+[Setup Kubernetes cluster]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server#create-a-simple-rest-api-webserver
+[Deploy REST API & its dependent services in K8s]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server#create-a-simple-rest-api-webserver
+[Deploy REST API & its dependent services using Helm Charts]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server#create-a-simple-rest-api-webserver
+[Setup one-click deployments using ArgoCD]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server#create-a-simple-rest-api-webserver
+[Setup an observability stack]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server#create-a-simple-rest-api-webserver
+[Configure dashboards & alerts]: https://github.com/rohit1101/SRE-Bootcamp-Web-Server#create-a-simple-rest-api-webserver
 
 
 ### 🏅Create a simple REST API Webserver
