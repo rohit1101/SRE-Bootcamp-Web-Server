@@ -160,7 +160,7 @@ make migrate
 
 ### 🏅Containerise REST API
 
-🚧 Work in progress
+Follow the instructions to install docker on your Ubuntu Machine -> [Install docker on ubuntu](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 
 ### 🏅Setup one-click local development setup
 
@@ -201,4 +201,3 @@ make migrate
 ### The **Whys** of few steps or commands ?
 
 - [Why `apt update -y` on Debian-based distros ?](https://askubuntu.com/a/222352)
--
