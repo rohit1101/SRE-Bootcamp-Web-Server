@@ -20,12 +20,12 @@ WORKDIR /app
 COPY --from=build /app ./
 
 # set envs required for the web-server to run 
-ENV NODE_ENV=development
-ENV DB_USER=postgres
-ENV DB_PASSWORD=postgres
-ENV DB_HOST=localhost
-ENV DB_PORT=5432
-ENV DB_DATABASE=postgres
+ARG NODE_ENV=development
+ARG DB_USER=postgres
+ARG DB_PASSWORD=postgres
+ARG DB_HOST=127.0.0.1
+ARG DB_PORT=5432
+ARG DB_DATABASE=postgres
 
 # expose port 3000 for the web server to be accessed
 EXPOSE 3000
