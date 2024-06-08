@@ -111,7 +111,7 @@ mkdir migrations
 NODE_ENV=development
 DB_USER=postgres
 DB_PASSWORD=postgres
-DB_HOST=localhost
+DB_HOST=127.0.0.1
 DB_PORT=5432
 DB_DATABASE=postgres
 ```

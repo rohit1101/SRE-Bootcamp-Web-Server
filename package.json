@@ -19,7 +19,7 @@
     "supertest": "^7.0.0"
   },
   "scripts": {
-    "start": "nodemon --env-file=.env ./index.js",
+    "start": "nodemon ./index.js",
     "test": "jest --testTimeout=10000"
   },
   "jest": {
