@@ -85,6 +85,7 @@ apt install postgresql // this install psql client for interacting with the data
 ```psql
 ALTER USER postgres PASSWORD 'postgres';
 ```
+
 ---
 
 ### 🏅Create a simple REST API Webserver
@@ -159,19 +160,20 @@ make migrate
 - Now switch to `postgres` user and enter `psql` to check our `students` table:
   <img width="848" alt="SCR-20240605-oevk" src="https://github.com/rohit1101/SRE-Bootcamp-Web-Server/assets/37110560/c3b822a0-dd43-413e-bc8e-02fe8bf72c6f">
 
-
 ### Endpoints
 
 > Base URL
-`http://locahost/v1`
+> `http://locahost/v1`
 
 ### Health Check
 
 #### GET /v1/healthcheck
+
 - **Description:** Checks API health status.
 - **Response:** `200 OK`
 
 **Example Request:**
+
 ```sh
 curl -X GET http://localhost/v1/healthcheck
 ```
@@ -179,10 +181,12 @@ curl -X GET http://localhost/v1/healthcheck
 ### Get All Students
 
 #### GET /v1/students
+
 - **Description:** Retrieves all students.
 - **Response:** `200 OK`
 
 **Example Request:**
+
 ```sh
 curl -X GET http://localhost/v1/students
 ```
@@ -190,10 +194,12 @@ curl -X GET http://localhost/v1/students
 ### Get Student by ID
 
 #### GET /v1/students/{id}
+
 - **Description:** Retrieves student by ID.
 - **Response:** `200 OK` / `404 Not Found`
 
 **Example Request:**
+
 ```sh
 curl -X GET http://your-api-domain.com/v1/students/1
 ```
@@ -201,14 +207,16 @@ curl -X GET http://your-api-domain.com/v1/students/1
 ### Create New Student
 
 #### POST /v1/students
+
 - **Description:** Creates a new student.
 - **Response:** `200 Created` / `400 Bad Request`
 - **Request body:**
   - name: `string`
   - age: `number`
-  - department: `string`   
+  - department: `string`
 
 **Example Request:**
+
 ```sh
 curl -X POST http://localhost/v1/students \
   -H "Content-Type: application/json" \
@@ -218,10 +226,12 @@ curl -X POST http://localhost/v1/students \
 ### Delete Student by ID
 
 #### DELETE /v1/students/{id}
+
 - **Description:** Deletes student by ID.
 - **Response:** `200 No Content` / `404 Not Found`
 
 **Example Request:**
+
 ```sh
 curl -X DELETE http://localhost/v1/students/4
 ```
@@ -229,6 +239,7 @@ curl -X DELETE http://localhost/v1/students/4
 ### Update Existing Student
 
 #### PUT /v1/students/{id}
+
 - **Description:** Updates student by ID.
 - **Response:** `200 OK` / `400 Bad Request` / `404 Not Found`
 - **Request body:**
@@ -237,6 +248,7 @@ curl -X DELETE http://localhost/v1/students/4
   - department: `string`
 
 **Example Request:**
+
 ```sh
 curl -X PUT http://localhost/v1/students/5 \
   -H "Content-Type: application/json" \
@@ -250,6 +262,7 @@ curl -X PUT http://localhost/v1/students/5 \
 Follow the instructions to install docker on your Ubuntu Machine -> [Install docker on ubuntu](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
 
 - Create a Dockerfile for running the web server using `node-*-apline` image for reducing the image size
+
 ```Dockerfile
 ARG NODE_VERSION=20.14.0
 
@@ -261,10 +274,10 @@ WORKDIR /app
 # copy deps
 COPY ./package*.json ./
 
-# install the dependencies 
+# install the dependencies
 RUN npm install
 
-# copy all source code 
+# copy all source code
 COPY . .
 
 FROM build as run
@@ -272,7 +285,7 @@ FROM build as run
 WORKDIR /app
 COPY --from=build /app ./
 
-# set envs required for the web-server to run 
+# set envs required for the web-server to run
 ARG NODE_ENV=development
 ARG DB_USER=postgres
 ARG DB_PASSWORD=postgres
@@ -286,17 +299,22 @@ EXPOSE 3000
 # execute this following command once the container boots
 ENTRYPOINT ["npm","start"]
 ```
-- Command for building a Docker Image and pushing it to Docker Hub (This step requires you to have a Docker Hub account): 
+
+- Command for building a Docker Image and pushing it to Docker Hub (This step requires you to have a Docker Hub account):
+
 ```sh
 # Create an image
 docker build -t <docker-hub-repo-name>/<image-name>:<tag-name>v1.0
 ```
+
 - Login using Docker Hub credentials:
-   <img width="1435" alt="image" src="https://github.com/rohit1101/SRE-Bootcamp-Web-Server/assets/37110560/833c23f9-8e38-40b4-bbf8-ef6991800ffd">
+  <img width="1435" alt="image" src="https://github.com/rohit1101/SRE-Bootcamp-Web-Server/assets/37110560/833c23f9-8e38-40b4-bbf8-ef6991800ffd">
 - Command for pushing the image to your Docker Hub account:
+
 ```sh
 docker push <docker-hub-repo-name>/<image-name>:<tag-name>v1.0
 ```
+
 - To execute `make containerise` to pull the image from docker registry and create a `web-server` container make sure your provide your Docker Hub repo name and image with the desired tag.
 - **NOTE: In the above Dockerfile I have directly passed a environment variables but in production environment it is better to use Docker secrets.**
 
@@ -304,7 +322,36 @@ docker push <docker-hub-repo-name>/<image-name>:<tag-name>v1.0
 
 ### 🏅Setup one-click local development setup
 
-🚧 Work in progress
+Now let's make the local developement setup quicker by using `docker-compose` and trigger server and DB containers using a single `make` command
+
+- First let us update the `.env` file with appropriate values since when we create containers using `docker-compose`
+
+  ```sh
+  NODE_ENV=development
+  DB_USER=postgres
+  DB_PASSWORD=postgres
+  DB_HOST=db
+  DB_PORT=5432
+  DB_DATABASE=postgres
+  ```
+
+- Please refer the `compose.yaml` for creating DB container first and checking the health of postgresql DB which then triggers migrations and starts the web-server.
+
+  - Server depends on DB service:
+    ![alt text](image.png)
+
+  - Health Check on DB:
+    ![Health Check on DB](image-1.png)
+
+- The following is the updated Dockerfile for applying migrations and starting the web server
+
+  ```Dockerfile
+  ENTRYPOINT ["sh", "-c", "npx knex migrate:latest && npm start"]
+  ```
+
+- Run `make start_app` for starting the app (web-server + db)
+
+---
 
 ### 🏅Setup a CI pipeline
 
