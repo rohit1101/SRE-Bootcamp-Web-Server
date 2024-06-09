@@ -1,4 +1,4 @@
-.PHONY: all install start test db_config create_migrations migrate containerise clean
+.PHONY: all install start test db_config create_migrations migrate only_migrate build_api_image start_app clean
 
 all: install start test
 
@@ -23,8 +23,19 @@ migrate: create_migrations
 	@echo "Applying migrations and creating table in postgres DB"
 	npx knex migrate:latest
 
-containerise:
-	docker run -d --name web-server -p 3000:3000 -e DB_USER=postgres -e DB_PASSWORD=postgres -e DB_HOST=127.0.0.1 -e DB_PORT=5432 -e DB_DATABASE=postgres awsclouddev/sre-bootcamp-web-server:v3.0
+only_migrate:
+	@echo "Applying mirgations and creating students table on DB container"
+	npx knex migrate:latest
+
+build_api_image:
+	docker build -t web-server-image .
+
+start_app: build_api_image
+	@echo "Starting DB container, check for healthy status, run DB migrations and start web-server container"
+	docker-compose --profile DB up -d
+
+delete_app:
+	docker-compose --profile DB down
 
 clean:
 	rm -rf migrations knexfile.js node_modules/
