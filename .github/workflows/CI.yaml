@@ -1,0 +1,25 @@
+name: Workflow for building API, testing, lint, build docker Image and pushing it to Docker Hub
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - feature/*
+
+jobs:
+  CI:
+    name: Set
+    runs-on: self-hosted
+
+    steps:
+      - name: pull code
+        uses: actions/checkout@v4
+
+      - name: Build and Test
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.14"
+      - run: npm ci
+      - run: npm test
