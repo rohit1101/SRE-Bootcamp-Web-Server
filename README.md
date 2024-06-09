@@ -350,6 +350,13 @@ Now let's make the local developement setup quicker by using `docker-compose` an
   ```
 
 - Run `make start_app` for starting the app (web-server + db)
+- Make a the following `curl` request and open `http://localhost:3000/v1/students` to view all students as response
+
+```sh
+curl -X POST http://localhost:3000/v1/students \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Alice", "age": 23, "department": "Arts"}'
+```
 
 ---
 
