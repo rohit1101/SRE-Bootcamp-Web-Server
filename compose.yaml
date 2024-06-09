@@ -1,13 +1,14 @@
 services:
   web-server:
     build: .
+    profiles: ["server", "DB"]
     environment:
-      NODE_ENV: development
-      DB_USER: postgres
-      DB_PASSWORD: postgres
-      DB_PORT: 5432
-      DB_DATABASE: postgres
-      DB_HOST: db
+      NODE_ENV: ${NODE_ENV}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_PORT: ${DB_PORT}
+      DB_DATABASE: ${DB_DATABASE}
+      DB_HOST: ${DB_HOST}
     ports:
       - 3000:3000
     # The commented out section below is an example of how to define a PostgreSQL
@@ -21,6 +22,7 @@ services:
 
   db:
     image: postgres:14-alpine
+    profiles: ["DB"]
     restart: unless-stopped
     user: postgres
     secrets:
@@ -28,11 +30,11 @@ services:
     volumes:
       - dbdata:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
+      - POSTGRES_DB=${DB_DATABASE}
+      - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
     expose:
-      - 5432:5432
+      - 5432
     networks:
       - backend-network
     healthcheck:
