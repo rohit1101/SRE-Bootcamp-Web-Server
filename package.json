@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "nodemon ./index.js",
-    "test": "jest --testTimeout=10000"
+    "test": "jest --testTimeout=1000"
   },
   "jest": {
     "testEnvironment": "node",
