@@ -23,7 +23,7 @@ COPY --from=build /app ./
 ARG NODE_ENV=development
 ARG DB_USER=postgres
 ARG DB_PASSWORD=postgres
-ARG DB_HOST=127.0.0.1
+ARG DB_HOST=db
 ARG DB_PORT=5432
 ARG DB_DATABASE=postgres
 
@@ -31,4 +31,4 @@ ARG DB_DATABASE=postgres
 EXPOSE 3000
 
 # execute this following command once the container boots
-ENTRYPOINT ["npm","start"]
+ENTRYPOINT ["sh", "-c", "npx knex migrate:latest && npm start"]
