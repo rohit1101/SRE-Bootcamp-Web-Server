@@ -363,7 +363,24 @@ curl -X POST http://localhost:3000/v1/students \
 ### 🏅Setup a CI pipeline
 
 - For setting up self-hosted Github Actions Runner we need to navigate to the **Settings** tab from the repository.
-
+  <img width="1440" alt="image" src="https://github.com/rohit1101/SRE-Bootcamp-Web-Server/assets/37110560/02a3bbe0-19ba-477f-bdc7-05bb66f06bc4">
+- Then click on Actions dropdown and click on Runners.
+  <img width="1440" alt="image" src="https://github.com/rohit1101/SRE-Bootcamp-Web-Server/assets/37110560/f9c9abff-6f79-49c0-8063-f16413e28de6">
+- Click on **New self-hosted runner** button
+  <img width="1440" alt="image" src="https://github.com/rohit1101/SRE-Bootcamp-Web-Server/assets/37110560/46757f92-023c-40f1-8076-70b2aa0949c6">
+- Follow the instructions on this page and setup a self-hosted runner and make sure to set `runs-on: self-hosted`
+  <img width="1440" alt="image" src="https://github.com/rohit1101/SRE-Bootcamp-Web-Server/assets/37110560/7ef31022-8fe0-460e-a3e5-cc5e3b83594a">
+- Finally let us start our self-hosted runner to run workflows on our system:
+  ```sh
+    cd actions-runner/
+    ./run.sh
+  ```
+- To setup github actions follow the below command from the root of the project folder and write your github action config on a `.yaml` file
+  ```sh
+    mkdir -p .github/workflows/
+    cd .github/workflows/
+    touch <github-action-filename>.yaml
+  ```
 ---
 
 ### 🏅Deploy REST API & its dependent services on bare metal
