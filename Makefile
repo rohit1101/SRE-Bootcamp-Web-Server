@@ -1,15 +1,21 @@
-.PHONY: all install start test db_config create_migrations migrate only_migrate build_api_image start_app clean
+.PHONY: all install start test db_config create_migrations migrate ci only_migrate build_api_image start_app lint clean
 
 all: install start test
 
 install:
 	npm install
 
+ci:
+	npm ci
+
 start:
 	npm start
 
 test:
 	npm test
+
+lint:
+	npm run lint
 
 db_config:
 	@echo "Generating knexfile.js file..."
