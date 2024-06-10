@@ -387,18 +387,31 @@ curl -X POST http://localhost:3000/v1/students \
 
 ### 🏅Deploy REST API & its dependent services on bare metal
 
-For this Milestone, I am using Vagrant on an Ubuntu 22.04 LTS VM on GCP 
+For this Milestone, I am using VirtuaBox for using Vagrant for Virtualisation
+Install VirtualBox on a desired OS -> [Install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
-Steps for installing Vagrant on Ubuntu -> [install](https://developer.hashicorp.com/vagrant/install#linux)
+Steps for installing Vagrant on a desired OS -> [Install Vagrant](https://developer.hashicorp.com/vagrant/install)
 
-- Initialise Vagrant and check for `Vagrantfile`:
+- Create a directory and initialise Vagrant:
   ```sh
-  vagrant init hashicorp/bionic64
-  ls -la
+  mkdir <directory-name> && cd <directory-name>
+  vagrant init hashicorp/bionic64 # creates Vagrantfile
   ```
 - Start VM using:
   ```sh
-  vagrant up```
+  vagrant up
+  ```
+- Use `logout` to exit the box
+- Create a `script.sh` file and add the installation commands for dependancies, this `script.sh` on host machine will be synced on the VM in `/vagrant/`
+- Let us modify `Vagrantfile` to install the dependancies using a shell script while provisioning
+  ```sh
+    config.vm.provision "shell", inline: "/bin/bash /vagrant/script.sh",
+      run: "once"
+  ```
+- Run the following command for provisioning the VM with the shell script:
+  ```sh
+  vagrant provision --provision-with shell
+  ```
 
 ---
 
