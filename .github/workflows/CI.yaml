@@ -5,14 +5,10 @@ on:
     branches:
       - main
       - milestone-*
-    paths-ignore:
-      - "*.md"
   pull_request:
     types: [opened]
     branches:
       - milestone-*
-    paths-ignore:
-      - "*.md"
 
 jobs:
   CI:

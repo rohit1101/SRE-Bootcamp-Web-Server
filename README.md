@@ -362,7 +362,7 @@ curl -X POST http://localhost:3000/v1/students \
 
 ### 🏅Setup a CI pipeline
 
-🚧 Work in progress
+- For setting up self-hosted Github Actions Runner we need to navigate to the **Settings** tab from the repository.
 
 ---
 
