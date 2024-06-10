@@ -364,33 +364,49 @@ curl -X POST http://localhost:3000/v1/students \
 
 🚧 Work in progress
 
+---
+
 ### 🏅Deploy REST API & its dependent services on bare metal
 
 🚧 Work in progress
+
+---
 
 ### 🏅Setup Kubernetes cluster
 
 🚧 Work in progress
 
+---
+
 ### 🏅Deploy REST API & its dependent services in K8s
 
 🚧 Work in progress
+
+---
 
 ### 🏅Deploy REST API & its dependent services using Helm Charts
 
 🚧 Work in progress
 
+---
+
 ### 🏅Setup one-click deployments using ArgoCD
 
 🚧 Work in progress
+
+---
 
 ### 🏅Setup an observability stack
 
 🚧 Work in progress
 
+---
+
 ### 🏅Configure dashboards & alerts
 
 🚧 Work in progress
+
+---
 
 ### The **Whys** of few steps or commands ?
 
