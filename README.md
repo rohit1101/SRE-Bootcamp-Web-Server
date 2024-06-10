@@ -387,7 +387,18 @@ curl -X POST http://localhost:3000/v1/students \
 
 ### 🏅Deploy REST API & its dependent services on bare metal
 
-🚧 Work in progress
+For this Milestone, I am using Vagrant on an Ubuntu 22.04 LTS VM on GCP 
+
+Steps for installing Vagrant on Ubuntu -> [install](https://developer.hashicorp.com/vagrant/install#linux)
+
+- Initialise Vagrant and check for `Vagrantfile`:
+  ```sh
+  vagrant init hashicorp/bionic64
+  ls -la
+  ```
+- Start VM using:
+  ```sh
+  vagrant up```
 
 ---
 
