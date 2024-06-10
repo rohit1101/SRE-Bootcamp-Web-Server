@@ -1,6 +1,6 @@
 # [SRE Bootcamp](https://playbook.one2n.in/sre-bootcamp)
 
-This repo contains the step by step implementation of **SRE Bootcamp** and updated **README** for the steps I followed to completed each milestone🏅.
+This repo contains the step by step implementation of **SRE Bootcamp** and updated **README** for the steps I followed to completed each milestone🏅
 
 ## Technologies used:
 
@@ -8,8 +8,10 @@ This repo contains the step by step implementation of **SRE Bootcamp** and updat
 - Web server: Node.js, Expressjs
 - Unit Tests: Jest,Supertest and Postman
 - Database: PostgreSQL
-- Database Migration: Knex
+- Database Migration Tool: Knex
 - Nodejs version: v20.14.0 LTS
+- Containerisation: Docker and Docker-Compose
+- CI: Github Actions
 
 ## Milestones
 
@@ -369,7 +371,7 @@ curl -X POST http://localhost:3000/v1/students \
 - Click on **New self-hosted runner** button
   <img width="1440" alt="image" src="https://github.com/rohit1101/SRE-Bootcamp-Web-Server/assets/37110560/46757f92-023c-40f1-8076-70b2aa0949c6">
 - Follow the instructions on this page and setup a self-hosted runner and make sure to set `runs-on: self-hosted`
-  <img width="1440" alt="image" src="https://github.com/rohit1101/SRE-Bootcamp-Web-Server/assets/37110560/7ef31022-8fe0-460e-a3e5-cc5e3b83594a">
+  <img width="1439" alt="image" src="https://github.com/rohit1101/SRE-Bootcamp-Web-Server/assets/37110560/eaba9ce0-0567-4c88-bd70-3711da20148f">
 - Finally let us start our self-hosted runner to run workflows on our system:
   ```sh
     cd actions-runner/
