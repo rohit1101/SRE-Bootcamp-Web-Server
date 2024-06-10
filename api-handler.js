@@ -91,6 +91,7 @@ exports.updateStudentEntry = async (req, res) => {
     [parseInt(id)]
   );
 
+  // eslint-disable-next-line no-extra-boolean-cast
   Boolean(doesIdExists.rows[0].exists)
     ? pool
         .query(
