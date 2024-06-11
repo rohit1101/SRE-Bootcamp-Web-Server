@@ -412,6 +412,14 @@ Steps for installing Vagrant on a desired OS -> [Install Vagrant](https://develo
   ```sh
   vagrant provision --provision-with shell
   ```
+##### Let us setup the following architecture using docker-compose
+
+<img width="1021" alt="image" src="https://github.com/rohit1101/SRE-Bootcamp-Web-Server/assets/37110560/3ff2fed6-97ee-4056-98a0-ea0c23b9df21">
+
+- nginx as load balancer by exposing `8080:80`
+- ws-1 (web server 1) by exposing `8081:3000`
+- ws-2 (web server 2) by exposing `8082:3000`
+- db (postgres db) by exposing `5432`
 
 ---
 
