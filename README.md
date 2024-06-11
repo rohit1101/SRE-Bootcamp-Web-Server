@@ -383,6 +383,7 @@ curl -X POST http://localhost:3000/v1/students \
     cd .github/workflows/
     touch <github-action-filename>.yaml
   ```
+
 ---
 
 ### 🏅Deploy REST API & its dependent services on bare metal
@@ -437,7 +438,17 @@ Steps for installing Vagrant on a desired OS -> [Install Vagrant](https://develo
 
 ### 🏅Setup Kubernetes cluster
 
-🚧 Work in progress
+Follow the [link](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download) to install minikube on the required OS.
+
+**NOTE: Make sure docker daemon is running in background before proceeding**
+
+- Execute `minikube start --nodes 4 -p multinode-setup` to setup multi-node cluster.
+- Run the following command to set label for our nodes:
+  ```sh
+  kubectl label node multinode-setup-m02 type=application
+  kubectl label node multinode-setup-m03 type=dependent_services
+  kubectl label node multinode-setup-m04 type=observability
+  ```
 
 ---
 
