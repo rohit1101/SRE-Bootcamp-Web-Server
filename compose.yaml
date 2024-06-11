@@ -1,5 +1,6 @@
 services:
   load-balancer:
+    container_name: load-balancer
     image: nginx:1.27-alpine
     restart: unless-stopped
     ports:
@@ -15,6 +16,7 @@ services:
   ws-1:
     build: .
     profiles: ["server", "DB"]
+    container_name: ws-1
     environment:
       NODE_ENV: ${NODE_ENV}
       DB_USER: ${DB_USER}
@@ -36,6 +38,7 @@ services:
   ws-2:
     build: .
     profiles: ["server", "DB"]
+    container_name: ws-2
     environment:
       NODE_ENV: ${NODE_ENV}
       DB_USER: ${DB_USER}
