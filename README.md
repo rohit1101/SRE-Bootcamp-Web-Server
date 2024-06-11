@@ -392,7 +392,16 @@ Install VirtualBox on a desired OS -> [Install VirtualBox](https://www.virtualbo
 
 Steps for installing Vagrant on a desired OS -> [Install Vagrant](https://developer.hashicorp.com/vagrant/install)
 
-- Create a directory and initialise Vagrant:
+- First let us setup the following architecture using docker-compose on host machine and test it.
+
+<img width="1021" alt="image" src="https://github.com/rohit1101/SRE-Bootcamp-Web-Server/assets/37110560/3ff2fed6-97ee-4056-98a0-ea0c23b9df21">
+
+- nginx as load balancer by exposing `8080:80`
+- ws-1 (web server 1) by exposing `8081:3000`
+- ws-2 (web server 2) by exposing `8082:3000`
+- db (postgres db) by exposing `5432`
+
+- Assuming the previous step is working as expected now let us create a directory and initialise Vagrant:
   ```sh
   mkdir <directory-name> && cd <directory-name>
   vagrant init hashicorp/bionic64 # creates Vagrantfile
@@ -412,14 +421,17 @@ Steps for installing Vagrant on a desired OS -> [Install Vagrant](https://develo
   ```sh
   vagrant provision --provision-with shell
   ```
-##### Let us setup the following architecture using docker-compose
-
-<img width="1021" alt="image" src="https://github.com/rohit1101/SRE-Bootcamp-Web-Server/assets/37110560/3ff2fed6-97ee-4056-98a0-ea0c23b9df21">
-
-- nginx as load balancer by exposing `8080:80`
-- ws-1 (web server 1) by exposing `8081:3000`
-- ws-2 (web server 2) by exposing `8082:3000`
-- db (postgres db) by exposing `5432`
+- Finally let us config the port forwarding on `Vagrantfile` such that when we access `http://localhost:8080/v1/healthcheck` from `host` machine the traffic is forwarded to `guest` machine port `8080`
+  ```sh
+    config.vm.network "forwarded_port", guest: 8080, host: 8080
+  ```
+- Now `logout` from `guest` machine and run `vagrant reload` to run our VM with the updated port forwarding setup.
+- Now let us test the port forwarding:
+  ```sh
+  cd SRE-Bootcamp-Web-Server/
+  sudo docker compose --profile DB up --build -d
+  ```
+- Open your browser and test `http://localhost:8080/v1/healthcheck`
 
 ---
 
