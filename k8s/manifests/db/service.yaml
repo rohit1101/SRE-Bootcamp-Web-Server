@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-service
+  namespace: student-api-ns
+  labels:
+    type: db
+spec:
+  type: ClusterIP
+  selector:
+    type: db
+  ports:
+    - port: 5432
+      targetPort: 5432
