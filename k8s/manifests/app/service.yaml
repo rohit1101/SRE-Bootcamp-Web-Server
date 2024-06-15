@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ws-service
+  namespace: student-api-ns
+  labels:
+    type: app
+spec:
+  type: NodePort
+  selector:
+    type: app
+  ports:
+    - port: 8000
+      targetPort: 3000
+      nodePort: 30002
