@@ -1,41 +1,138 @@
+---
 apiVersion: v1
-kind: Namespace
+kind: ConfigMap
 metadata:
-  name: student-api-ns
-
+  name: app-cm
+  namespace: student-api-ns
+  labels:
+    type: app
+data:
+  NODE_ENV: "development"
+  DB_USER: "postgres"
+  DB_PASSWORD: "postgres"
+  DB_HOST: "db-service"
+  DB_PORT: "5432"
+  DB_DATABASE: "postgres"
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-server
+  name: app-deploy
   namespace: student-api-ns
   labels:
-    type: application
+    type: app
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
-      type: application
+      type: app
   template:
     metadata:
+      name: app-deploy-pod
+      namespace: student-api-ns
       labels:
-        type: application
+        type: app
     spec:
       containers:
-        - name: ws
-          image: docker.io/awsclouddev/sre-bootcamp-web-server:milestone-5
+        - name: app-deploy-pod
+          image: docker.io/awsclouddev/sre-bootcamp-web-server:v3.0
+          imagePullPolicy: IfNotPresent
           env:
             - name: NODE_ENV
-              value: "development"
+              valueFrom:
+                configMapKeyRef:
+                  name: app-cm
+                  key: NODE_ENV
+
             - name: DB_USER
-              value: "postgres"
+              valueFrom:
+                configMapKeyRef:
+                  name: app-cm
+                  key: DB_USER
+
             - name: DB_PASSWORD
-              value: "postgres"
+              valueFrom:
+                configMapKeyRef:
+                  name: app-cm
+                  key: DB_PASSWORD
+
             - name: DB_HOST
-              value: "127.0.0.1"
+              valueFrom:
+                configMapKeyRef:
+                  name: app-cm
+                  key: DB_HOST
+
             - name: DB_PORT
-              value: "5432"
+              valueFrom:
+                configMapKeyRef:
+                  name: app-cm
+                  key: DB_PORT
+
             - name: DB_DATABASE
-              value: "postgres"
+              valueFrom:
+                configMapKeyRef:
+                  name: app-cm
+                  key: DB_DATABASE
+
           ports:
             - containerPort: 3000
+      initContainers:
+        - name: init-app-cont
+          image: docker.io/awsclouddev/sre-bootcamp-web-server:milestone-5
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: NODE_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: app-cm
+                  key: NODE_ENV
+
+            - name: DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: app-cm
+                  key: DB_USER
+
+            - name: DB_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: app-cm
+                  key: DB_PASSWORD
+
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: app-cm
+                  key: DB_HOST
+
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: app-cm
+                  key: DB_PORT
+
+            - name: DB_DATABASE
+              valueFrom:
+                configMapKeyRef:
+                  name: app-cm
+                  key: DB_DATABASE
+          command: ["sh", "-c", "npx knex migrate:latest"]
+      nodeSelector:
+        type: app
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ws-service
+  namespace: student-api-ns
+  labels:
+    type: app
+spec:
+  type: NodePort
+  selector:
+    type: app
+  ports:
+    - port: 8000
+      targetPort: 3000
+      nodePort: 30002
