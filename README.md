@@ -12,6 +12,7 @@ This repo contains the step by step implementation of **SRE Bootcamp** and updat
 - Nodejs version: v20.14.0 LTS
 - Containerisation: Docker and Docker-Compose
 - CI: Github Actions
+- Container Orchestration Tool: Kubernetes
 
 ## Milestones
 
