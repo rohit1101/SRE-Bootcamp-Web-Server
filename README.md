@@ -454,7 +454,7 @@ Follow the [link](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-6
 
 ### 🏅Deploy REST API & its dependent services in K8s
 
-🚧 Work in progress
+First let us create a multinode cluster using minikube for deploying our REST APIs and the dependencies on K8s.
 
 ---
 
