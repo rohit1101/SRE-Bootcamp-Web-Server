@@ -445,8 +445,8 @@ Follow the [link](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-6
 - Execute `minikube start --nodes 4 -p multinode-setup` to setup multi-node cluster.
 - Run the following command to set label for our nodes:
   ```sh
-  kubectl label node multinode-setup-m02 type=application
-  kubectl label node multinode-setup-m03 type=dependent_services
+  kubectl label node multinode-setup-m02 type=app
+  kubectl label node multinode-setup-m03 type=db
   kubectl label node multinode-setup-m04 type=observability
   ```
 
@@ -455,6 +455,24 @@ Follow the [link](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-6
 ### 🏅Deploy REST API & its dependent services in K8s
 
 First let us create a multinode cluster using minikube for deploying our REST APIs and the dependencies on K8s.
+
+- Use this command to create multi-node setup with minikube:
+```sh
+minikube start -n=4 -p multinode-setup
+```
+- Create a namespace with `kubectl` command below:
+```sh
+kubectl create ns students-api-ns
+```
+- Switch to our namespace:
+```sh
+kubectl config set-context --current --namespace=student-api-ns
+```
+- Make sure you add your service, deployment, config maps and secrets in a single yaml file within a folder (like /app/app.yaml and /db/db.yaml)
+- Go to the appropriate directory and execute which will create required object in our K8s cluster.
+```sh
+kubectl create -f k8s/manifest/<folder-name>/<manifest-filename>.yaml
+```
 
 ---
 
