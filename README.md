@@ -13,6 +13,7 @@ This repo contains the step by step implementation of **SRE Bootcamp** and updat
 - Containerisation: Docker and Docker-Compose
 - CI: Github Actions
 - Container Orchestration Tool: Kubernetes
+- Load Balancer: Nginx
 
 ## Milestones
 
