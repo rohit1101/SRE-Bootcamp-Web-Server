@@ -14,6 +14,7 @@ This repo contains the step by step implementation of **SRE Bootcamp** and updat
 - CI: Github Actions
 - Container Orchestration Tool: Kubernetes
 - Load Balancer: Nginx
+- External Secret Store: Hashicorp Vault
 
 ## Milestones
 
