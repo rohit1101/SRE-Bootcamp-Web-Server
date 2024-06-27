@@ -476,6 +476,7 @@ kubectl config set-context --current --namespace=student-api-ns
 ```sh
 kubectl create -f k8s/manifest/<folder-name>/<manifest-filename>.yaml
 ```
+// update configMap steps
 
 ---
 
