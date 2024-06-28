@@ -460,23 +460,43 @@ Follow the [link](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-6
 First let us create a multinode cluster using minikube for deploying our REST APIs and the dependencies on K8s.
 
 - Use this command to create multi-node setup with minikube:
+
 ```sh
 minikube start -n=4 -p multinode-setup
 ```
+
 - Create a namespace with `kubectl` command below:
+
 ```sh
 kubectl create ns students-api-ns
 ```
+
 - Switch to our namespace:
+
 ```sh
 kubectl config set-context --current --namespace=student-api-ns
 ```
+
 - Make sure you add your service, deployment, config maps and secrets in a single yaml file within a folder (like /app/app.yaml and /db/db.yaml)
 - Go to the appropriate directory and execute which will create required object in our K8s cluster.
+
 ```sh
 kubectl create -f k8s/manifest/<folder-name>/<manifest-filename>.yaml
 ```
-// update configMap steps
+
+- Use the following command to test the web server and db connection locally by port forwarding, here `30002` is the `nodePort` for the `ws-service` and `8000` is the exposed port from the pod
+
+```sh
+kubectl port-forward service/ws-service 30002:8000
+```
+
+- Till now we have used configMaps for passing environment variables to the respective pods, which is not the good way of doing thing in production, hence the following steps will guide you to setup external secret store and we will use Hashicorp Vault for storing the secrets.
+- Let us create two more namespaces for one vault and one for external secret store respectively
+
+```sh
+kubectl create ns external-secrets-ns
+kubectl create ns vault-ns
+```
 
 ---
 
