@@ -14,7 +14,7 @@ This repo contains the step by step implementation of **SRE Bootcamp** and updat
 - CI: **Github Actions**
 - Container Orchestration Tool: **Kubernetes**
 - Load Balancer: **Nginx**
-- External Secret Store: **Hashicorp Vault**
+- External Secret Store: **AWS Secrets Manager**
 
 ## Milestones
 
@@ -528,3 +528,4 @@ kubectl create ns vault-ns
 ### The **Whys** of few steps or commands ?
 
 - [Why `apt update -y` on Debian-based distros ?](https://askubuntu.com/a/222352)
+- [Why am i using AWS Secrets Manager instead of Hashicorp Vault ?](https://github.com/hashicorp/vault/issues/15197)
