@@ -4,17 +4,17 @@ This repo contains the step by step implementation of **SRE Bootcamp** and updat
 
 ## Technologies used:
 
-- OS: Ubuntu 22.04 LTS
-- Web server: Node.js, Expressjs
-- Unit Tests: Jest,Supertest and Postman
-- Database: PostgreSQL
-- Database Migration Tool: Knex
-- Nodejs version: v20.14.0 LTS
-- Containerisation: Docker and Docker-Compose
-- CI: Github Actions
-- Container Orchestration Tool: Kubernetes
-- Load Balancer: Nginx
-- External Secret Store: Hashicorp Vault
+- OS: **Ubuntu 22.04 LTS**
+- Web server: **Node.js, Expressjs**
+- Unit Tests: **Jest,Supertest and Postman**
+- Database: **PostgreSQL**
+- Database Migration Tool: **Knex**
+- Nodejs version: **v20.14.0 LTS**
+- Containerisation: **Docker and Docker-Compose**
+- CI: **Github Actions**
+- Container Orchestration Tool: **Kubernetes**
+- Load Balancer: **Nginx**
+- External Secret Store: **Hashicorp Vault**
 
 ## Milestones
 
@@ -441,7 +441,8 @@ Steps for installing Vagrant on a desired OS -> [Install Vagrant](https://develo
 
 ### 🏅Setup Kubernetes cluster
 
-Follow the [link](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download) to install minikube on the required OS.
+- Follow this [link](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download) to install `minikube` on the required OS.
+- Follow this [link](https://kubernetes.io/docs/tasks/tools/) to install `kubectl` cli tool for your OS.
 
 **NOTE: Make sure docker daemon is running in background before proceeding**
 
@@ -468,7 +469,7 @@ minikube start -n=4 -p multinode-setup
 - Create a namespace with `kubectl` command below:
 
 ```sh
-kubectl create ns students-api-ns
+kubectl create ns student-api-ns
 ```
 
 - Switch to our namespace:
