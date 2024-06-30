@@ -3,13 +3,12 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: app-cm
-  namespace: student-api-ns
+  namespace: eso-ns
   labels:
     type: app
 data:
   NODE_ENV: "development"
   DB_USER: "postgres"
-  DB_PASSWORD: "postgres"
   DB_HOST: "db-service"
   DB_PORT: "5432"
   DB_DATABASE: "postgres"
@@ -18,7 +17,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app-deploy
-  namespace: student-api-ns
+  namespace: eso-ns
   labels:
     type: app
 spec:
@@ -29,7 +28,7 @@ spec:
   template:
     metadata:
       name: app-deploy-pod
-      namespace: student-api-ns
+      namespace: eso-ns
       labels:
         type: app
     spec:
@@ -52,8 +51,8 @@ spec:
 
             - name: DB_PASSWORD
               valueFrom:
-                configMapKeyRef:
-                  name: app-cm
+                secretKeyRef:
+                  name: db-secret
                   key: DB_PASSWORD
 
             - name: DB_HOST
@@ -125,7 +124,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: ws-service
-  namespace: student-api-ns
+  namespace: eso-ns
   labels:
     type: app
 spec:
