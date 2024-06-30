@@ -451,7 +451,7 @@ Steps for installing Vagrant on a desired OS -> [Install Vagrant](https://develo
   ```sh
   kubectl label node multinode-setup-m02 type=app
   kubectl label node multinode-setup-m03 type=db
-  kubectl label node multinode-setup-m04 type=observability
+  kubectl label node multinode-setup-m04 type=deps
   ```
 
 ---
@@ -491,12 +491,12 @@ kubectl create -f k8s/manifest/<folder-name>/<manifest-filename>.yaml
 kubectl port-forward service/ws-service 30002:8000
 ```
 
-- Till now we have used configMaps for passing environment variables to the respective pods, which is not the good way of doing thing in production, hence the following steps will guide you to setup external secret store and we will use Hashicorp Vault for storing the secrets.
-- Let us create two more namespaces for one vault and one for external secret store respectively
+- Till now we have used configMaps for passing environment variables to the respective pods, which is not the good way of doing thing in production, hence the following steps will guide you to setup external secret store and we will use AWS Secrets Manager for storing the secrets.
+- Let us create a namespace for external secret store and switch the context
 
 ```sh
-kubectl create ns external-secrets-ns
-kubectl create ns vault-ns
+kubectl create ns eso-ns
+kubectl config set-context --current --namespace=eso-ns
 ```
 
 ---
