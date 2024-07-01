@@ -498,6 +498,14 @@ kubectl port-forward service/ws-service 30002:8000
 kubectl create ns eso-ns
 kubectl config set-context --current --namespace=eso-ns
 ```
+- Install external secrets operator using helm -> [here](https://external-secrets.io/latest/introduction/getting-started/)
+- Create config files for `SecretStore` and `ExternalSecretStore`
+- Create a secret which we can use to pass aws cli access keys to the secret store using the following command:
+```sh
+kubectl create secret generic awssm-secret --from-literal=access-key=<AWS_CLI_ACCESS_KEY> --from-literal=secret-access-key=<AWS_CLI_SECRET_ACCESS_KEY>
+```
+- Make sure you provide the least priviledge access to the IAM user via IAM Policy.
+- Now remove all the `DB_PASSWORD` environment variables previously defined on `configMaps`, delete the deployments and re-create the deployment to test if our changes are working.
 
 ---
 
