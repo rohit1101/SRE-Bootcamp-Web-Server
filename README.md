@@ -15,6 +15,7 @@ This repo contains the step by step implementation of **SRE Bootcamp** and updat
 - Container Orchestration Tool: **Kubernetes**
 - Load Balancer: **Nginx**
 - External Secret Store: **AWS Secrets Manager**
+- K8s Custom Resource Definitions: **External Secrrets**
 
 ## Milestones
 
