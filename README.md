@@ -80,7 +80,7 @@ npm -v # should print `10.7.0`
 - Install postgresql:
 
 ```sh
-apt install postgresql // this install psql client for interacting with the database with quries
+apt install postgresql -y // this install psql client for interacting with the database with queries
 ```
 
 - Switch to postgres user and use psql client
