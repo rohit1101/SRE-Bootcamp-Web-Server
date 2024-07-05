@@ -363,7 +363,8 @@ curl -X POST http://localhost:3000/v1/students \
   -H "Content-Type: application/json" \
   -d '{"name": "Alice", "age": 23, "department": "Arts"}'
 ```
-
+- Run`make delete_app` for stopping the app (web-server + db)
+- **NOTE**: On ubuntu use `docker compose` plugin instead `docker-compose`  
 ---
 
 ### 🏅Setup a CI pipeline
