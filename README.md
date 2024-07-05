@@ -539,3 +539,4 @@ kubectl create secret generic awssm-secret --from-literal=access-key=<AWS_CLI_AC
 
 - [Why `apt update -y` on Debian-based distros ?](https://askubuntu.com/a/222352)
 - [Why am i using AWS Secrets Manager instead of Hashicorp Vault ?](https://github.com/hashicorp/vault/issues/15197)
+- [What is the issue on using `docker-compose` on Ubuntu ?](https://askubuntu.com/a/1396692)
