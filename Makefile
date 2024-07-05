@@ -1,4 +1,4 @@
-.PHONY: all install start test db_config create_migrations migrate ci only_migrate build_api_image start_app lint clean
+.PHONY: all install start test db_config create_migrations migrate ci build_api_image start_app lint clean
 
 all: install start test
 
@@ -21,16 +21,12 @@ db_config:
 	@echo "Generating knexfile.js file..."
 	npx knex init
 
-create_migrations: db_config
+create_migrations:
 	@echo "Create migrations file at migrations/"
 	npx knex migrate:make create_students_table
 
-migrate: create_migrations
+migrate:
 	@echo "Applying migrations and creating table in postgres DB"
-	npx knex migrate:latest
-
-only_migrate:
-	@echo "Applying mirgations and creating students table on DB container"
 	npx knex migrate:latest
 
 build_api_image:
