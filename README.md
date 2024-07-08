@@ -321,7 +321,7 @@ docker build -t <docker-hub-repo-name>/<image-name>:<tag-name>v1.0
 docker push <docker-hub-repo-name>/<image-name>:<tag-name>v1.0
 ```
 
-- To execute `make containerise` to pull the image from docker registry and create a `web-server` container make sure your provide your Docker Hub repo name and image with the desired tag.
+- To execute `make containerise` to pull the image from docker registry and create a `web-server` container make sure your provide your Docker Hub repo name and image with the desired tag. Please refer the command [here](https://github.com/rohit1101/SRE-Bootcamp-Web-Server/blob/milestone-2/Makefile#L26)
 - **NOTE: In the above Dockerfile I have directly passed a environment variables but in production environment it is better to use Docker secrets.**
 
 ---
