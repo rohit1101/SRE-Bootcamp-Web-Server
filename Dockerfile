@@ -20,6 +20,7 @@ WORKDIR /app
 COPY --from=build /app ./
 
 # set envs required for the web-server to run 
+# use DB_HOST=db when using docker compose service
 ARG NODE_ENV=development
 ARG DB_USER=postgres
 ARG DB_PASSWORD=postgres
