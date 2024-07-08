@@ -341,7 +341,7 @@ Now let's make the local developement setup quicker by using `docker-compose` an
   DB_DATABASE=postgres
   ```
 
-- Please refer the `compose.yaml` for creating DB container first and checking the health of postgresql DB which then triggers migrations and starts the web-server.
+- Please refer the `compose.yaml` [here](https://github.com/rohit1101/SRE-Bootcamp-Web-Server/blob/milestone-3/compose.yaml#L1) for creating DB container first and checking the health of postgresql DB which then triggers migrations and starts the web-server.
 
   - Server depends on DB service:
     ![alt text](image.png)
