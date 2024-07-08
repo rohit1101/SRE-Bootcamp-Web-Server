@@ -310,7 +310,7 @@ ENTRYPOINT ["npm","start"]
 
 ```sh
 # Create an image
-docker build -t <docker-hub-repo-name>/<image-name>:<tag-name>v1.0
+docker build -t <docker-hub-repo-name>/<image-name>:<tag-name>
 ```
 
 - Login using Docker Hub credentials:
