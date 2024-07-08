@@ -5,7 +5,7 @@
 exports.up = function (knex) {
   return knex.schema.createTable("students", function (table) {
     table.increments("id").primary();
-    table.string("name", 255).notNullable().unique();
+    table.string("name", 255).notNullable();
     table.smallint("age").notNullable();
     table.text("department").notNullable();
   });
