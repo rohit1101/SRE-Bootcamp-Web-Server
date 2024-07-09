@@ -416,6 +416,10 @@ Steps for installing Vagrant on a desired OS -> [Install Vagrant](https://develo
   ```sh
   vagrant up
   ```
+- Login to the VM using:
+  ```sh
+  vagrant ssh
+  ```
 - Use `logout` to exit the box
 - Create a `script.sh` file and add the installation commands for dependancies, this `script.sh` on host machine will be synced on the VM in `/vagrant/`
 - Let us modify `Vagrantfile` to install the dependancies using a shell script while provisioning
@@ -438,6 +442,7 @@ Steps for installing Vagrant on a desired OS -> [Install Vagrant](https://develo
   sudo docker compose --profile DB up --build -d
   ```
 - Open your browser and test `http://localhost:8080/v1/healthcheck`
+**NOTE**: Please refer [here](https://github.com/rohit1101/Vagrant-101/blob/main/script.sh) for the script file.
 
 ---
 
