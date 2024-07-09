@@ -514,6 +514,10 @@ kubectl create secret generic awssm-secret --from-literal=access-key=<AWS_CLI_AC
 ```
 - Make sure you provide the least priviledge access to the IAM user via IAM Policy.
 - Now remove all the `DB_PASSWORD` environment variables previously defined on `configMaps`, delete the deployments and re-create the deployment to test if our changes are working.
+- For tearing down the minikube setup use the following command:
+  ```sh
+  minikube delete --profile multinode-setup
+  ```
 
 ---
 
