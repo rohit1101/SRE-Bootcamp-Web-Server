@@ -442,7 +442,8 @@ Steps for installing Vagrant on a desired OS -> [Install Vagrant](https://develo
   sudo docker compose --profile DB up --build -d
   ```
 - Open your browser and test `http://localhost:8080/v1/healthcheck`
-**NOTE**: Please refer [here](https://github.com/rohit1101/Vagrant-101/blob/main/script.sh) for the script file.
+
+> **NOTE**: Please refer [here](https://github.com/rohit1101/Vagrant-101/blob/main/script.sh) for the script file.
 
 ---
 
