@@ -94,8 +94,8 @@ spec:
 
             - name: DB_PASSWORD
               valueFrom:
-                configMapKeyRef:
-                  name: app-cm
+                secretKeyRef:
+                  name: db-secret
                   key: DB_PASSWORD
 
             - name: DB_HOST

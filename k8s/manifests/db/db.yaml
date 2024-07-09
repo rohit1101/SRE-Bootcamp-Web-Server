@@ -1,14 +1,4 @@
 ---
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: db-cm
-  namespace: eso-ns
-  labels:
-    type: db
-data:
-  POSTGRES_PASSWORD: "postgres"
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
