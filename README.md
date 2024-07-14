@@ -168,6 +168,9 @@ make migrate
 
 ### Endpoints
 
+**NOTE**: [Link](https://documenter.getpostman.com/view/7434942/2sA3e5f98m) for postman collection
+
+
 > Base URL
 > `http://locahost/v1`
 
