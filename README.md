@@ -168,11 +168,10 @@ make migrate
 
 ### Endpoints
 
-**NOTE**: [Link](https://documenter.getpostman.com/view/7434942/2sA3e5f98m) for postman collection
+#### **NOTE**: [Link](https://documenter.getpostman.com/view/7434942/2sA3e5f98m) for postman collection
 
 
-> Base URL
-> `http://locahost/v1`
+Base URL -> `http://locahost:3000/v1`
 
 ### Health Check
 
@@ -184,7 +183,7 @@ make migrate
 **Example Request:**
 
 ```sh
-curl -X GET http://localhost/v1/healthcheck
+curl -X GET http://localhost:3000/v1/healthcheck
 ```
 
 ### Get All Students
@@ -197,7 +196,7 @@ curl -X GET http://localhost/v1/healthcheck
 **Example Request:**
 
 ```sh
-curl -X GET http://localhost/v1/students
+curl -X GET http://localhost:3000/v1/students
 ```
 
 ### Get Student by ID
@@ -210,7 +209,7 @@ curl -X GET http://localhost/v1/students
 **Example Request:**
 
 ```sh
-curl -X GET http://your-api-domain.com/v1/students/1
+curl -X GET http://localhost:3000/v1/students/1
 ```
 
 ### Create New Student
@@ -227,7 +226,7 @@ curl -X GET http://your-api-domain.com/v1/students/1
 **Example Request:**
 
 ```sh
-curl -X POST http://localhost/v1/students \
+curl -X POST http://localhost:3000/v1/students \
   -H "Content-Type: application/json" \
   -d '{"name": "Alice", "age": 23, "department": "MECH"}'
 ```
@@ -242,7 +241,7 @@ curl -X POST http://localhost/v1/students \
 **Example Request:**
 
 ```sh
-curl -X DELETE http://localhost/v1/students/4
+curl -X DELETE http://localhost:3000/v1/students/4
 ```
 
 ### Update Existing Student
@@ -259,7 +258,7 @@ curl -X DELETE http://localhost/v1/students/4
 **Example Request:**
 
 ```sh
-curl -X PUT http://localhost/v1/students/5 \
+curl -X PUT http://localhost:3000/v1/students/5 \
   -H "Content-Type: application/json" \
   -d '{"name": "Robert", "age": 24, "department": "ECE"}'
 ```
