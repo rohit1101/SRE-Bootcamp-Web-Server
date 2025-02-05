@@ -4,12 +4,12 @@ This repo contains the step by step implementation of **SRE Bootcamp** and updat
 
 ## Technologies used:
 
-- OS: **Ubuntu 22.04 LTS**
-- Web server: **Node.js, Expressjs**
+- OS: **Ubuntu 24.04 LTS**
+- Web server: **Flask**
 - Unit Tests: **Jest,Supertest and Postman**
 - Database: **PostgreSQL**
 - Database Migration Tool: **Knex**
-- Nodejs version: **v20.14.0 LTS**
+- Python version: **v3.12**
 - Containerisation: **Docker and Docker-Compose**
 - CI: **Github Actions**
 - Container Orchestration Tool: **Kubernetes**
