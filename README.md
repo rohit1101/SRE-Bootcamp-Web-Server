@@ -366,7 +366,28 @@ curl -X POST http://localhost:3000/v1/students \
   -d '{"name": "Alice", "age": 23, "department": "Arts"}'
 ```
 - Run`make delete_app` for stopping the app (web-server + db)
-- **NOTE**: On ubuntu use `docker compose` plugin instead `docker-compose`  
+- **NOTE**: On ubuntu use `docker compose` plugin instead `docker-compose`
+
+#### How to do it without using docker compose ?
+
+Assuming you have followed the pre-requisites step, this methods uses the `host` network instead of a custom network defined on a compose file. 
+
+- We can use [this](https://hub.docker.com/repository/docker/awsclouddev/sre-bootcamp-web-server/tags/v4.0/sha256:fef1a72428179dcd49fe5bef69258feb438393b67749fc209e0e8fcd50f76e70?tab=layers) image for testing this setup.
+- Run the following command for testing the connectivity between the psql process running on the host and the container running on the host network
+  ```bash
+  docker run -itd --name ws-1 -p 3000:3000 --network host --env-file=<path-for-env-file> awsclouddev/sre-bootcamp-web-server:v4.0 
+  ```
+- Switch to your browser and open localhost:3000/v1/healthcheck
+  ![image](https://github.com/user-attachments/assets/3a1dce37-6413-495e-b0b3-0af5801e08cf)
+- Run the following curl command
+  ```sh
+  curl -X POST http://localhost:3000/v1/students \
+  -H "Content-Type: application/json" \
+  -d '{"name": "Alice", "age": 23, "department": "MECH"}'
+  ```
+- Check `http://localhost:3000/v1/students`
+  ![image](https://github.com/user-attachments/assets/ff17842b-7c96-42bf-88b4-4d1190c32e52)
+
 ---
 
 ### 🏅Setup a CI pipeline
