@@ -385,7 +385,7 @@ Assuming you have followed the pre-requisites step, this methods uses the `host`
   -H "Content-Type: application/json" \
   -d '{"name": "Alice", "age": 23, "department": "MECH"}'
   ```
-- Check `http://localhost:3000/v1/students`
+- Open this URL on your browser to the check the add student -> `http://localhost:3000/v1/students`
   ![image](https://github.com/user-attachments/assets/ff17842b-7c96-42bf-88b4-4d1190c32e52)
 
 ---
