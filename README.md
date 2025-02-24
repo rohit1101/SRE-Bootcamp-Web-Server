@@ -380,7 +380,7 @@ Assuming you have followed the pre-requisites step, this methods uses the `host`
 - Switch to your browser and open localhost:3000/v1/healthcheck
   ![image](https://github.com/user-attachments/assets/3a1dce37-6413-495e-b0b3-0af5801e08cf)
 - Run the following curl command
-  ```sh
+  ```bash
   curl -X POST http://localhost:3000/v1/students \
   -H "Content-Type: application/json" \
   -d '{"name": "Alice", "age": 23, "department": "MECH"}'
