@@ -19,15 +19,6 @@ FROM build as run
 WORKDIR /app
 COPY --from=build /app ./
 
-# set envs required for the web-server to run 
-# use DB_HOST=db when using docker compose service
-ARG NODE_ENV=development
-ARG DB_USER=postgres
-ARG DB_PASSWORD=postgres
-ARG DB_HOST=db
-ARG DB_PORT=5432
-ARG DB_DATABASE=postgres
-
 # expose port 3000 for the web server to be accessed
 EXPOSE 3000
 
