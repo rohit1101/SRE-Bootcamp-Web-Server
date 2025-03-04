@@ -65,7 +65,7 @@ services:
       - dbdata:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=${DB_DATABASE}
-      - POSTGRES_USER=${DB_USER}
+      # - POSTGRES_USER=${DB_USER} // not required since we have already defined a user key
       - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
     expose:
       - 5432
