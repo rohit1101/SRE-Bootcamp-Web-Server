@@ -66,6 +66,7 @@ services:
     environment:
       - POSTGRES_DB=${DB_DATABASE}
       - POSTGRES_PASSWORD_FILE=/run/secrets/db-password
+      # - POSTGRES_USER=${DB_USER}
     expose:
       - 5432
     networks:
