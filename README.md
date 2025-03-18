@@ -466,7 +466,7 @@ Steps for installing Vagrant on a desired OS -> [Install Vagrant](https://develo
 
 - Follow this [link](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download) to install `minikube` on the required OS.
 - Follow this [link](https://kubernetes.io/docs/tasks/tools/) to install `kubectl` cli tool for your OS.
-- Follow these steps [here](https://rohit1101.hashnode.dev/setting-up-k8s-cluster-on-your-machine) to setup kubernetes on local machine 
+- Follow these steps [here](https://rohit1101.hashnode.dev/setting-up-k8s-cluster-on-your-machine) to setup kubernetes on local machine.
 
 **NOTE: Make sure docker daemon is running in background before proceeding**
 
