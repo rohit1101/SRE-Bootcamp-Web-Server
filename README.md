@@ -7,7 +7,7 @@ This repo contains the step by step implementation of **SRE Bootcamp** and updat
 - OS: **Ubuntu 22.04 LTS**
 - Web server: **Node.js, Expressjs**
 - Unit Tests: **Jest,Supertest and Postman**
-- Database: **PostgreSQL**
+- Database: **PostgreSQL on neon DB**
 - Database Migration Tool: **Knex**
 - Nodejs version: **v20.14.0 LTS**
 - Containerisation: **Docker and Docker-Compose**
